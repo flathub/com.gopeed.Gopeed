@@ -7,9 +7,11 @@ rename-desktop-file: gopeed.desktop
 command: gopeed
 finish-args:
   - '--share=ipc'
-  - '--socket=x11'
+  - '--socket=wayland'
+  - '--socket=fallback-x11'
   - '--share=network'
   - '--device=dri'
+  - '--talk-name=org.kde.StatusNotifierWatcher'
   - '--talk-name=org.freedesktop.Notifications'
   # https://github.com/miguelpruivo/flutter_file_picker/pull/1275
   - '--filesystem=xdg-download'
@@ -23,7 +25,24 @@ cleanup:
   - /share/man
   - /share/gtk-doc
 modules:
+  - shared-modules/dbus-glib/dbus-glib.json
   - shared-modules/libappindicator/libappindicator-gtk3-12.10.json
+  - name: libnotify
+    buildsystem: meson
+    config-opts:
+      - -Dtests=false
+      - -Dintrospection=disabled
+      - -Dman=false
+      - -Dgtk_doc=false
+      - -Ddocbook_docs=disabled
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.3.tar.xz
+        sha256: ee8f3ef946156ad3406fdf45feedbdcd932dbd211ab4f16f75eba4f36fb2f6c0
+        x-checker-data:
+          type: gnome
+          name: libnotify
+          stable-only: true
   - name: gopeed
     buildsystem: simple
     build-commands:
