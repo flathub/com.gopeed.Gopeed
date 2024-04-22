@@ -5,7 +5,7 @@
   <name>Gopeed</name>
   <developer_name>GopeedLab</developer_name>
   <summary>A modern download manager</summary>
-  <summary xml:lang="zh-cn">一款现代下载管理器</summary>
+  <summary xml:lang="zh_CN">一款现代下载管理器</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0</project_license>
   <url type="homepage">https://github.com/GopeedLab/gopeed</url>
