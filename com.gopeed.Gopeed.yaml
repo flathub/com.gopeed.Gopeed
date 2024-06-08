@@ -46,12 +46,10 @@ modules:
           type: anitya
           project-id: 18446
           tag-template: $version
+          
     modules:
-      - name: intltool
-        sources:
-          - type: archive
-            url: https://launchpad.net/intltool/trunk/0.51.0/+download/intltool-0.51.0.tar.gz
-            sha256: 67c74d94196b153b774ab9f89b2fa6c6ba79352407037c8c14d5aeb334e959cd
+      - shared-modules/intltool/intltool-0.51.json
+      
       - name: ayatana-ido
         buildsystem: cmake-ninja
         sources:
@@ -63,6 +61,7 @@ modules:
               type: anitya
               project-id: 18445
               tag-template: $version
+
       - name: libayatana-indicator
         buildsystem: cmake-ninja
         sources:
@@ -74,6 +73,7 @@ modules:
               type: anitya
               project-id: 18447
               tag-template: $version
+
       - name: libdbusmenu-gtk3
         buildsystem: autotools
         build-options:
