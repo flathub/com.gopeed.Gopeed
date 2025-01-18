@@ -37,9 +37,9 @@ modules:
       - install -Dm644 com.gopeed.Gopeed.metainfo.xml -t /app/share/metainfo
     sources:
       - type: file
-        url: https://github.com/GopeedLab/gopeed/releases/download/v1.6.7/Gopeed-v1.6.7-linux-amd64.deb
+        url: https://github.com/GopeedLab/gopeed/releases/download/v1.6.6/Gopeed-v1.6.6-linux-amd64.deb
         dest-filename: gopeed.deb
-        sha256: 7cbb5ba99096fead5ca073ef3d34d86be7604e8c21205939e27c9a1a6fd41368
+        sha256: 43678239a8793f3e643a21e3bc1d02cc2d222fc9b85c08c027363143e6320686
         x-checker-data:
           type: json
           url: https://api.github.com/repos/GopeedLab/gopeed/releases/latest
