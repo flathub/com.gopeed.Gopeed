@@ -54,5 +54,5 @@ modules:
       - type: script
         commands:
           - export TMPDIR="$XDG_RUNTIME_DIR/app/$FLATPAK_ID"
-          - /app/gopeed/gopeed
+          - /app/gopeed/gopeed "$@"
         dest-filename: gopeed.sh
