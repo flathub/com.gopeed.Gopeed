@@ -12,7 +12,7 @@ finish-args:
   - --share=network
   - --device=dri
   - --talk-name=org.kde.StatusNotifierWatcher
-  - --own-name=com.gopeed
+  - --own-name=com.gopeed.gopeed
   # https://github.com/miguelpruivo/flutter_file_picker/pull/1275
   - --filesystem=xdg-download
 cleanup:
@@ -38,9 +38,9 @@ modules:
       - install -Dm644 com.gopeed.Gopeed.metainfo.xml -t /app/share/metainfo
     sources:
       - type: file
-        url: https://github.com/GopeedLab/gopeed/releases/download/v1.6.7/Gopeed-v1.6.7-linux-amd64.deb
+        url: https://github.com/GopeedLab/gopeed/releases/download/v1.6.8/Gopeed-v1.6.8-linux-amd64.deb
         dest-filename: gopeed.deb
-        sha256: 7cbb5ba99096fead5ca073ef3d34d86be7604e8c21205939e27c9a1a6fd41368
+        sha256: 6e1bc4ad3d3a9c25c9c48acd4745d9ac3bf6ed5ff1440e23fb271b35db2bd704
         x-checker-data:
           type: json
           url: https://api.github.com/repos/GopeedLab/gopeed/releases/latest
