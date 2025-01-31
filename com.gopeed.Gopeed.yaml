@@ -12,7 +12,6 @@ finish-args:
   - --share=network
   - --device=dri
   - --talk-name=org.kde.StatusNotifierWatcher
-  - --own-name=com.gopeed
   # https://github.com/miguelpruivo/flutter_file_picker/pull/1275
   - --filesystem=xdg-download
 cleanup:
