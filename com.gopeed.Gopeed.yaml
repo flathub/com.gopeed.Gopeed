@@ -38,6 +38,7 @@ modules:
     sources:
       - type: file
         url: https://github.com/pugaizai/gopeed/releases/download/v1.6.10/Gopeed-v1.6.10-linux-amd64.deb
+        only-arches: [x86_64]
         dest-filename: gopeed.deb
         sha256: 54c1f3f33da701c4c6a74e10914fcd25639e31c01c5d99d708e5475e590f21b6
         # x-checker-data:
@@ -50,6 +51,7 @@ modules:
         #     .browser_download_url
       - type: file
         url: https://github.com/pugaizai/gopeed/releases/download/v1.6.10/Gopeed-v1.6.10-linux-arm64.deb
+        only-arches: [aarch64]
         dest-filename: gopeed.deb
         sha256: fb570d372316e79a8a50d4b9acfd4c2048e1d72aed628b922f3f06401e9c291f
         # x-checker-data:
