@@ -37,17 +37,31 @@ modules:
       - install -Dm644 com.gopeed.Gopeed.metainfo.xml -t /app/share/metainfo
     sources:
       - type: file
-        url: https://github.com/GopeedLab/gopeed/releases/download/v1.6.8/Gopeed-v1.6.8-linux-amd64.deb
+        url: https://github.com/pugaizai/gopeed/releases/download/v1.6.10/Gopeed-v1.6.10-linux-amd64.deb
+        only-arches: [x86_64]
         dest-filename: gopeed.deb
-        sha256: 6e1bc4ad3d3a9c25c9c48acd4745d9ac3bf6ed5ff1440e23fb271b35db2bd704
-        x-checker-data:
-          type: json
-          url: https://api.github.com/repos/GopeedLab/gopeed/releases/latest
-          version-query: .tag_name | sub("^v"; "")
-          url-query: >-
-            .assets[] | select(.name=="Gopeed-v" + $version + "-linux-amd64.deb")
-            |
-            .browser_download_url
+        sha256: 54c1f3f33da701c4c6a74e10914fcd25639e31c01c5d99d708e5475e590f21b6
+        # x-checker-data:
+        #   type: json
+        #   url: https://api.github.com/repos/GopeedLab/gopeed/releases/latest
+        #   version-query: .tag_name | sub("^v"; "")
+        #   url-query: >-
+        #     .assets[] | select(.name=="Gopeed-v" + $version + "-linux-amd64.deb")
+        #     |
+        #     .browser_download_url
+      - type: file
+        url: https://github.com/pugaizai/gopeed/releases/download/v1.6.10/Gopeed-v1.6.10-linux-arm64.deb
+        only-arches: [aarch64]
+        dest-filename: gopeed.deb
+        sha256: fb570d372316e79a8a50d4b9acfd4c2048e1d72aed628b922f3f06401e9c291f
+        # x-checker-data:
+        #   type: json
+        #   url: https://api.github.com/repos/GopeedLab/gopeed/releases/latest
+        #   version-query: .tag_name | sub("^v"; "")
+        #   url-query: >-
+        #     .assets[] | select(.name=="Gopeed-v" + $version + "-linux-arm64.deb")
+        #     |
+        #     .browser_download_url
       - type: file
         path: com.gopeed.Gopeed.metainfo.xml
       - type: script
