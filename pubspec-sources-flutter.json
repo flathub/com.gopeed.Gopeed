@@ -1332,7 +1332,8 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "path": "pub-git-cache.tar.gz",
+        "url": "https://github.com/flathub/com.gopeed.Gopeed/releases/download/continuous/pub-git-cache.tar.gz",
+        "sha256": "22855d0755b8913add1198e5a9dd1095fc7ebb2dc0af0175efb1782f8050953c",
         "dest": ".pub-cache"
     }
 ]
