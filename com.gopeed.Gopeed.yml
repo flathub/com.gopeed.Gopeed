@@ -1,0 +1,79 @@
+app-id: com.gopeed.Gopeed
+runtime: org.freedesktop.Platform
+runtime-version: '24.08'
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.llvm19
+  - org.freedesktop.Sdk.Extension.golang
+rename-icon: gopeed
+rename-desktop-file: gopeed.desktop
+command: gopeed
+finish-args:
+  - --share=ipc
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --share=network
+  - --device=dri
+  - --talk-name=org.kde.StatusNotifierWatcher
+  # https://github.com/miguelpruivo/flutter_file_picker/pull/1275
+  - --filesystem=xdg-download
+cleanup:
+  - '*.a'
+  - '*.la'
+  - /include
+  - /lib/cmake
+  - /lib/pkgconfig
+  - /man
+  - /share/man
+  - /share/gtk-doc
+  - /var/lib
+modules:
+  - shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json
+  - name: Gopeed
+    buildsystem: simple
+    build-options:
+      arch:
+        x86_64:
+          env:
+            BUNDLE_PATH: ui/flutter/build/linux/x64/release/bundle
+        aarch64:
+          env:
+            BUNDLE_PATH: ui/flutter/build/linux/arm64/release/bundle
+      append-path: /usr/lib/sdk/llvm19/bin:/usr/lib/sdk/golang/bin:/var/lib/flutter/bin
+      prepend-ld-library-path: /usr/lib/sdk/llvm19/lib
+      env:
+        PUB_CACHE: /run/build/gopeed/.pub-cache
+    build-commands:
+      - go build -mod=vendor -tags nosqlite -ldflags="-w -s -X github.com/GopeedLab/gopeed/pkg/base.Version=1.6.10" -buildmode=c-shared -o ui/flutter/linux/bundle/lib/libgopeed.so ./bind/desktop
+      - go build -mod=vendor -ldflags="-w -s" -o ui/flutter/assets/host/host ./cmd/host
+      - cd ui/flutter && flutter build linux --release --verbose
+      - install -D ${BUNDLE_PATH}/gopeed ${FLATPAK_DEST}/gopeed
+      - install -Dm755 gopeed.sh ${FLATPAK_DEST}/bin/gopeed
+      - install -Dm644 com.gopeed.Gopeed.metainfo.xml -t ${FLATPAK_DEST}/share/metainfo
+      - install -Dm644 ui/flutter/linux/assets/com.gopeed.Gopeed.desktop -t ${FLATPAK_DEST}/share/applications
+      - install -Dm644 ui/flutter/assets/icon/icon.svg ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
+    sources:
+      - type: git
+        url: https://github.com/GopeedLab/gopeed.git
+        tag: v1.6.10
+        commit: 654e57e94694260f7c4af6ed0eddddfb06b5502b
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
+      - type: file
+        path: com.gopeed.Gopeed.metainfo.xml
+      - type: script
+        commands:
+          - export TMPDIR="${XDG_RUNTIME_DIR}/app/${FLATPAK_ID}"
+          - /app/gopeed/gopeed "$@"
+        dest-filename: gopeed.sh
+      # go
+      - go.mod.yml
+      # flutter
+      - type: file
+        path: package_config.json
+        dest: flutter/packages/flutter_tools/.dart_tool
+      - pubspec-sources-flutter.json
+      - pubspec-sources-Gopeed.json
+    modules:
+      - flutter-sdk-3.24.5.json
