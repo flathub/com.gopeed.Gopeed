@@ -1,0 +1,90 @@
+name: Auto Update
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 19 * * 1" # Run every Monday on 19:30 UTC
+env:
+  FLATPAK_ID: com.gopeed.Gopeed
+  FLUTTER_VERSION: "3.24.5"
+jobs:
+  flatpak-external-data-checker:
+    name: 'Check update'
+    runs-on: ubuntu-latest
+    outputs:
+      updated: ${{ steps.is-updated.outputs.updated }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: 'TheAppgineer/flatpak-flutter'
+      
+      - uses: actions/checkout@v4
+
+      - uses: docker://ghcr.io/flathub/flatpak-external-data-checker:latest
+        with:
+          args: --edit-only ${{ env.FLATPAK_ID }}-online.yml
+
+      - uses: docker://ghcr.io/flathub/flatpak-external-data-checker:latest
+        with:
+          args: --edit-only ${{ env.FLATPAK_ID }}.yml
+
+      - name: Check updated
+        id: is-updated 
+        run: |
+          git status -s -uno
+          [ -z "$(git status -s -uno)" ] || echo "updated=true" >> $GITHUB_OUTPUT
+
+      - name: Generate go/flutter sources
+        if: steps.is-updated.outputs.updated
+        run: |
+          sudo apt update
+          sudo apt install python3-yaml golang
+          go install github.com/dennwc/flatpak-go-mod@latest
+          export PATH="${PATH}:${HOME}/go/bin"
+          ver=$(grep release ${{ env.FLATPAK_ID }}.metainfo.xml | grep -m1 -oP '(?<=version=.)[^"]+')
+          git clone https://github.com/GopeedLab/gopeed.git -b "v${ver}" --depth 1
+          flatpak-go-mod gopeed
+          rm -rf gopeed
+          ../flatpak-flutter.sh ${{ env.FLATPAK_ID }} ${{ env.FLUTTER_VERSION }}
+
+      - name: Upload artifact pub-git-cache
+        uses: actions/upload-artifact@v4
+        with:
+          # Artifact name
+          name: pub-git-cache
+          path: |
+            ${{ env.FLATPAK_ID }}/pub-git-cache.tar.gz
+
+      - name: Reset
+        run: |
+          git checkout -- ${{ env.FLATPAK_ID }}.yml *.xml
+
+      - uses: docker://ghcr.io/flathub/flatpak-external-data-checker:latest
+        name: Recheck and open PR
+        env:
+          GIT_AUTHOR_NAME: Flatpak External Data Checker
+          GIT_COMMITTER_NAME: Flatpak External Data Checker
+          # email sets "github-actions[bot]" as commit author, see https://github.community/t/github-actions-bot-email-address/17204/6
+          GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: --update --never-fork ${{ env.FLATPAK_ID }}.yml
+
+  upload:
+    name: Create release and upload pub-git-cache.tar.gz
+    needs: [flatpak-external-data-checker]
+    if: ${{ needs.flatpak-external-data-checker.outputs.updated == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+      - name: Inspect directory after downloading artifacts
+        run: ls -alFR
+      - name: Create release and upload artifacts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          wget -q https://github.com/TheAssassin/pyuploadtool/releases/download/continuous/pyuploadtool-x86_64.AppImage
+          chmod +x pyuploadtool-x86_64.AppImage
+          ./pyuploadtool-x86_64.AppImage pub-git-cache.tar.gz
