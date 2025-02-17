@@ -48,6 +48,7 @@ jobs:
           ../flatpak-flutter.sh ${{ env.FLATPAK_ID }} ${{ env.FLUTTER_VERSION }}
 
       - name: Upload artifact pub-git-cache
+        if: steps.is-updated.outputs.updated
         uses: actions/upload-artifact@v4
         with:
           # Artifact name
