@@ -37,8 +37,11 @@ jobs:
       - name: Generate go/flutter sources
         if: steps.is-updated.outputs.updated
         run: |
+          sudo add-apt-repository ppa:flatpak/stable
           sudo apt update
-          sudo apt install python3-yaml golang
+          sudo apt install python3-yaml golang flatpak
+          flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo --user
+          flatpak install org.flatpak.Builder --user -y
           go install github.com/dennwc/flatpak-go-mod@latest
           export PATH="${PATH}:${HOME}/go/bin"
           ver=$(grep release ${{ env.FLATPAK_ID }}.metainfo.xml | grep -m1 -oP '(?<=version=.)[^"]+')
