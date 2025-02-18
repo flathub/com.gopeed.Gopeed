@@ -54,15 +54,14 @@ modules:
       - install -Dm644 com.gopeed.Gopeed.metainfo.xml -t ${FLATPAK_DEST}/share/metainfo
       - install -Dm644 linux/assets/com.gopeed.Gopeed.desktop -t ${FLATPAK_DEST}/share/applications
       - install -Dm644 assets/icon/icon.svg ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
-      - desktop-file-edit --set-key="Categories" --set-value="Utility;Network;" ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop
     sources:
       - type: git
         url: https://github.com/GopeedLab/gopeed.git
-        tag: v1.6.10
-        commit: 654e57e94694260f7c4af6ed0eddddfb06b5502b
-        x-checker-data:
-          type: git
-          tag-pattern: ^v([\d.]+)$
+        # tag: v1.6.10
+        commit: 69bb875172e923ec23cb3817d4ca0a3c530cf9ae
+        # x-checker-data:
+        #   type: git
+        #   tag-pattern: ^v([\d.]+)$
       - type: file
         path: com.gopeed.Gopeed.metainfo.xml
       # go
