@@ -3,7 +3,9 @@
   <id>com.gopeed.Gopeed</id>
   <launchable type="desktop-id">com.gopeed.Gopeed.desktop</launchable>
   <name>Gopeed</name>
-  <developer_name>GopeedLab</developer_name>
+  <developer id="com.gopeed">
+    <name>GopeedLab</name>
+  </developer>
   <summary>A modern download manager</summary>
   <summary xml:lang="zh_CN">一款现代下载管理器</summary>
   <metadata_license>CC0-1.0</metadata_license>
