@@ -46,9 +46,9 @@ modules:
       env:
         PUB_CACHE: /run/build/Gopeed/.pub-cache
     build-commands:
-      - go build -mod=vendor -tags nosqlite -ldflags="-w -s -X github.com/GopeedLab/gopeed/pkg/base.Version=1.6.10"
-        -buildmode=c-shared -o ui/flutter/linux/bundle/lib/libgopeed.so ./bind/desktop
-      - go build -mod=vendor -ldflags="-w -s" -o ui/flutter/assets/host/host ./cmd/host
+      - go build -mod=vendor -tags nosqlite -ldflags="-w -s -X github.com/GopeedLab/gopeed/pkg/base.Version=$(grep '^version:' ui/flutter/pubspec.yaml | cut -d ' ' -f 2 | cut -d '+' -f 1)"
+        -buildmode=c-shared -o ui/flutter/linux/bundle/lib/libgopeed.so github.com/GopeedLab/gopeed/bind/desktop
+      - go build -mod=vendor -ldflags="-w -s" -o ui/flutter/assets/host/host github.com/GopeedLab/gopeed/cmd/host
       - cp -r ui/flutter/* .
       - flutter/bin/flutter build linux --release --verbose
     sources:
@@ -68,7 +68,3 @@ modules:
         url: https://github.com/flutter/flutter.git
         tag: 3.24.5
         dest: flutter
-      # Workaround: To keep engine.version and allow shallow clones: https://github.com/flutter/flutter/issues/163308
-      - type: shell
-        commands:
-          - rm -f flutter/engine/src/.gn
