@@ -27,6 +27,7 @@ cleanup:
   - /man
   - /share/man
   - /share/gtk-doc
+  - /var/lib
 modules:
   - shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json
   - name: Gopeed
@@ -41,16 +42,20 @@ modules:
             BUNDLE_PATH: build/linux/arm64/release/bundle
       build-args:
         - --share=network
-      append-path: /usr/lib/sdk/llvm19/bin:/usr/lib/sdk/golang/bin
+      append-path: /usr/lib/sdk/llvm19/bin:/usr/lib/sdk/golang/bin:/run/build/Gopeed/flutter/bin
       prepend-ld-library-path: /usr/lib/sdk/llvm19/lib
       env:
         PUB_CACHE: /run/build/Gopeed/.pub-cache
     build-commands:
       - go build -mod=vendor -tags nosqlite -ldflags="-w -s -X github.com/GopeedLab/gopeed/pkg/base.Version=$(grep '^version:' ui/flutter/pubspec.yaml | cut -d ' ' -f 2 | cut -d '+' -f 1)"
-        -buildmode=c-shared -o ui/flutter/linux/bundle/lib/libgopeed.so github.com/GopeedLab/gopeed/bind/desktop
+        -buildmode=c-shared -o ui/flutter/linux/bundle/lib/libgopeed.so github.com/GopeedLab/gopeed/cmd/host
       - go build -mod=vendor -ldflags="-w -s" -o ui/flutter/assets/host/host github.com/GopeedLab/gopeed/cmd/host
       - cp -r ui/flutter/* .
-      - flutter/bin/flutter build linux --release --verbose
+      - flutter build linux --release
+      - cp -r ${BUNDLE_PATH}/* ${FLATPAK_DEST}/bin
+      - install -Dm644 com.gopeed.Gopeed.metainfo.xml -t ${FLATPAK_DEST}/share/metainfo
+      - install -Dm644 linux/assets/com.gopeed.Gopeed.desktop -t ${FLATPAK_DEST}/share/applications
+      - install -Dm644 assets/icon/icon.svg ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
     sources:
       - type: git
         url: https://github.com/GopeedLab/gopeed.git
