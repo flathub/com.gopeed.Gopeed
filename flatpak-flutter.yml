@@ -15,7 +15,6 @@ finish-args:
   - --share=network
   - --device=dri
   - --talk-name=org.kde.StatusNotifierWatcher
-  # https://github.com/miguelpruivo/flutter_file_picker/pull/1275
   - --filesystem=xdg-download
   - --own-name=com.gopeed.gopeed
 cleanup:
@@ -47,8 +46,9 @@ modules:
       env:
         PUB_CACHE: /run/build/Gopeed/.pub-cache
     build-commands:
-      - go build -mod=vendor -tags nosqlite -ldflags="-w -s -X github.com/GopeedLab/gopeed/pkg/base.Version=$(grep '^version:' ui/flutter/pubspec.yaml | cut -d ' ' -f 2 | cut -d '+' -f 1)"
-        -buildmode=c-shared -o ui/flutter/linux/bundle/lib/libgopeed.so github.com/GopeedLab/gopeed/cmd/host
+      - go build -mod=vendor -tags nosqlite -ldflags="-w -s -X github.com/GopeedLab/gopeed/pkg/base.Version=$(grep
+        '^version:' ui/flutter/pubspec.yaml | cut -d ' ' -f 2 | cut -d '+' -f 1)"
+        -buildmode=c-shared -o ui/flutter/linux/bundle/lib/libgopeed.so github.com/GopeedLab/gopeed/bind/desktop
       - go build -mod=vendor -ldflags="-w -s" -o ui/flutter/assets/host/host github.com/GopeedLab/gopeed/cmd/host
       - cp -r ui/flutter/* .
       - flutter build linux --release

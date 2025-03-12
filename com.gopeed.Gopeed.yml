@@ -46,7 +46,7 @@ modules:
     build-commands:
       - go build -mod=vendor -tags nosqlite -ldflags="-w -s -X github.com/GopeedLab/gopeed/pkg/base.Version=$(grep
         '^version:' ui/flutter/pubspec.yaml | cut -d ' ' -f 2 | cut -d '+' -f 1)"
-        -buildmode=c-shared -o ui/flutter/linux/bundle/lib/libgopeed.so github.com/GopeedLab/gopeed/cmd/host
+        -buildmode=c-shared -o ui/flutter/linux/bundle/lib/libgopeed.so github.com/GopeedLab/gopeed/bind/desktop
       - go build -mod=vendor -ldflags="-w -s" -o ui/flutter/assets/host/host github.com/GopeedLab/gopeed/cmd/host
       - cp -r ui/flutter/* .
       - mkdir -p build/native_assets/linux
