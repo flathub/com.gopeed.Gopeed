@@ -1,5 +1,4 @@
 .flatpak-builder/
 build/
+repo/
 gopeed/
-pub-cache/
-pub-git-cache.tar.gz
