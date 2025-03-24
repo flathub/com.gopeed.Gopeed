@@ -16,11 +16,7 @@ finish-args:
   - --device=dri
   - --talk-name=org.kde.StatusNotifierWatcher
   - --filesystem=xdg-download
-  # The following args are needed to access browser extensions
   - --own-name=com.gopeed.gopeed
-  - --filesystem=~/.config/google-chrome/NativeMessagingHosts
-  - --filesystem=~/.config/microsoft-edge/NativeMessagingHosts
-  - --filesystem=~/.mozilla/native-messaging-hosts
 cleanup:
   - '*.a'
   - '*.la'

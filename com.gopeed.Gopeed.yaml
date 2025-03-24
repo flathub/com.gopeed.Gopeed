@@ -17,9 +17,6 @@ finish-args:
   - --talk-name=org.kde.StatusNotifierWatcher
   - --filesystem=xdg-download
   - --own-name=com.gopeed.gopeed
-  - --filesystem=~/.config/google-chrome/NativeMessagingHosts
-  - --filesystem=~/.config/microsoft-edge/NativeMessagingHosts
-  - --filesystem=~/.mozilla/native-messaging-hosts
 cleanup:
   - '*.a'
   - '*.la'
