@@ -17,6 +17,9 @@ finish-args:
   - --talk-name=org.kde.StatusNotifierWatcher
   - --filesystem=xdg-download
   - --own-name=com.gopeed.gopeed
+  - --filesystem=~/.config/google-chrome/NativeMessagingHosts
+  - --filesystem=~/.config/microsoft-edge/NativeMessagingHosts
+  - --filesystem=~/.mozilla/native-messaging-hosts
 cleanup:
   - '*.a'
   - '*.la'
@@ -44,14 +47,15 @@ modules:
       env:
         PUB_CACHE: /run/build/Gopeed/.pub-cache
     build-commands:
-      - go build -mod=vendor -v -tags nosqlite -ldflags="-w -s -X github.com/GopeedLab/gopeed/pkg/base.Version=$(grep
+      - go build -mod=vendor -tags nosqlite -ldflags="-w -s -X github.com/GopeedLab/gopeed/pkg/base.Version=$(grep
         '^version:' ui/flutter/pubspec.yaml | cut -d ' ' -f 2 | cut -d '+' -f 1)"
         -buildmode=c-shared -o ui/flutter/linux/bundle/lib/libgopeed.so github.com/GopeedLab/gopeed/bind/desktop
-      - go build -mod=vendor -v -ldflags="-w -s" -o ui/flutter/assets/host/host github.com/GopeedLab/gopeed/cmd/host
+      - go build -mod=vendor -ldflags="-w -s" -o ui/flutter/assets/exec/host github.com/GopeedLab/gopeed/cmd/host
+      - go build -mod=vendor -ldflags="-w -s" -o ui/flutter/assets/exec/updater github.com/GopeedLab/gopeed/cmd/updater
       - cp -r ui/flutter/* .
       - mkdir -p build/native_assets/linux
       - setup-flutter.sh
-      - flutter build linux --release
+      - flutter build linux --release --dart-define="UPDATE_CHANNEL=linuxSnap"
       - cp -r ${BUNDLE_PATH}/* ${FLATPAK_DEST}/bin
       - install -Dm644 com.gopeed.Gopeed.metainfo.xml -t ${FLATPAK_DEST}/share/metainfo
       - install -Dm644 linux/assets/com.gopeed.Gopeed.desktop -t ${FLATPAK_DEST}/share/applications
