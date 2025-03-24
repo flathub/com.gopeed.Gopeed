@@ -910,6 +910,19 @@
         "dest-filename": "image-4.3.0.sha256"
     },
     {
+        "type": "git",
+        "url": "https://github.com/hui-z/flutter_install_plugin.git",
+        "commit": "cf08af829f4a4145634f8a047108f505fdbe5eaa",
+        "dest": ".pub-cache/git/flutter_install_plugin-cf08af829f4a4145634f8a047108f505fdbe5eaa"
+    },
+    {
+        "type": "shell",
+        "commands": [
+            "mkdir -p .pub-cache/git/cache/flutter_install_plugin-53ae9665e3a5563bfe97abbd9df791ca5595bcf7",
+            "cp -rf .pub-cache/git/flutter_install_plugin-cf08af829f4a4145634f8a047108f505fdbe5eaa/.git/* .pub-cache/git/cache/flutter_install_plugin-53ae9665e3a5563bfe97abbd9df791ca5595bcf7"
+        ]
+    },
+    {
         "type": "archive",
         "archive-type": "tar-gzip",
         "url": "https://pub.dev/api/archives/intl-0.19.0.tar.gz",
@@ -1437,7 +1450,7 @@
         "type": "shell",
         "commands": [
             "mkdir -p .pub-cache/git/cache/flutter-permission-handler-522ba095b086e795be1b01786cf212f3dad43bb5",
-            "cp -r .pub-cache/git/flutter-permission-handler-35fc72c30262b9b49e1965b48a7524b44ba9daa7/.git/* .pub-cache/git/cache/flutter-permission-handler-522ba095b086e795be1b01786cf212f3dad43bb5"
+            "cp -rf .pub-cache/git/flutter-permission-handler-35fc72c30262b9b49e1965b48a7524b44ba9daa7/.git/* .pub-cache/git/cache/flutter-permission-handler-522ba095b086e795be1b01786cf212f3dad43bb5"
         ]
     },
     {

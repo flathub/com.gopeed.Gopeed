@@ -1,11 +1,11 @@
-# Generated from flatpak-flutter.yml, do not edit
+# Generated from flatpak-flutter.yaml, do not edit
 # Visit the flatpak-flutter project at https://github.com/TheAppgineer/flatpak-flutter
 app-id: com.gopeed.Gopeed
 runtime: org.freedesktop.Platform
 runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.llvm19
+  - org.freedesktop.Sdk.Extension.llvm20
   - org.freedesktop.Sdk.Extension.golang
 command: gopeed
 finish-args:
@@ -39,15 +39,15 @@ modules:
         aarch64:
           env:
             BUNDLE_PATH: build/linux/arm64/release/bundle
-      append-path: /usr/lib/sdk/llvm19/bin:/usr/lib/sdk/golang/bin:/var/lib/flutter/bin
-      prepend-ld-library-path: /usr/lib/sdk/llvm19/lib
+      append-path: /usr/lib/sdk/llvm20/bin:/usr/lib/sdk/golang/bin:/var/lib/flutter/bin
+      prepend-ld-library-path: /usr/lib/sdk/llvm20/lib
       env:
         PUB_CACHE: /run/build/Gopeed/.pub-cache
     build-commands:
-      - go build -mod=vendor -tags nosqlite -ldflags="-w -s -X github.com/GopeedLab/gopeed/pkg/base.Version=$(grep
+      - go build -mod=vendor -v -tags nosqlite -ldflags="-w -s -X github.com/GopeedLab/gopeed/pkg/base.Version=$(grep
         '^version:' ui/flutter/pubspec.yaml | cut -d ' ' -f 2 | cut -d '+' -f 1)"
         -buildmode=c-shared -o ui/flutter/linux/bundle/lib/libgopeed.so github.com/GopeedLab/gopeed/bind/desktop
-      - go build -mod=vendor -ldflags="-w -s" -o ui/flutter/assets/host/host github.com/GopeedLab/gopeed/cmd/host
+      - go build -mod=vendor -v -ldflags="-w -s" -o ui/flutter/assets/host/host github.com/GopeedLab/gopeed/cmd/host
       - cp -r ui/flutter/* .
       - mkdir -p build/native_assets/linux
       - setup-flutter.sh
@@ -59,7 +59,11 @@ modules:
     sources:
       - type: git
         url: https://github.com/GopeedLab/gopeed.git
-        commit: 69bb875172e923ec23cb3817d4ca0a3c530cf9ae
+        tag: v1.6.11
+        commit: bfad91dcab4baa426bf81c73066fff063c7f024c
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
       - type: file
         path: com.gopeed.Gopeed.metainfo.xml
       - go.mod.yml
