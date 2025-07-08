@@ -1219,6 +1219,76 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
+        "url": "https://pub.dev/api/archives/open_dir-0.0.2+1.tar.gz",
+        "sha256": "a4884b00e5e5795a9b4b3d582ac6a66e9196795ed760dbc3c63b4837c70c5901",
+        "strip-components": 0,
+        "dest": ".pub-cache/hosted/pub.dev/open_dir-0.0.2+1"
+    },
+    {
+        "type": "inline",
+        "contents": "a4884b00e5e5795a9b4b3d582ac6a66e9196795ed760dbc3c63b4837c70c5901",
+        "dest": ".pub-cache/hosted-hashes/pub.dev",
+        "dest-filename": "open_dir-0.0.2+1.sha256"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
+        "url": "https://pub.dev/api/archives/open_dir_linux-0.0.2+1.tar.gz",
+        "sha256": "566cd9e02403971be06af35e1abc8057a4f3f98888c1226042e96a2af333b8bc",
+        "strip-components": 0,
+        "dest": ".pub-cache/hosted/pub.dev/open_dir_linux-0.0.2+1"
+    },
+    {
+        "type": "inline",
+        "contents": "566cd9e02403971be06af35e1abc8057a4f3f98888c1226042e96a2af333b8bc",
+        "dest": ".pub-cache/hosted-hashes/pub.dev",
+        "dest-filename": "open_dir_linux-0.0.2+1.sha256"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
+        "url": "https://pub.dev/api/archives/open_dir_macos-0.0.2.tar.gz",
+        "sha256": "51fdc8c3a06c9d571b599b5901045ada23d1440b24c3052c0a66cf3ee4ac901b",
+        "strip-components": 0,
+        "dest": ".pub-cache/hosted/pub.dev/open_dir_macos-0.0.2"
+    },
+    {
+        "type": "inline",
+        "contents": "51fdc8c3a06c9d571b599b5901045ada23d1440b24c3052c0a66cf3ee4ac901b",
+        "dest": ".pub-cache/hosted-hashes/pub.dev",
+        "dest-filename": "open_dir_macos-0.0.2.sha256"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
+        "url": "https://pub.dev/api/archives/open_dir_platform_interface-0.0.2.tar.gz",
+        "sha256": "ca189abb02d8e3320f9b2493b6d58e3a33f393d5eb4ccbbef02e0bc0fd393872",
+        "strip-components": 0,
+        "dest": ".pub-cache/hosted/pub.dev/open_dir_platform_interface-0.0.2"
+    },
+    {
+        "type": "inline",
+        "contents": "ca189abb02d8e3320f9b2493b6d58e3a33f393d5eb4ccbbef02e0bc0fd393872",
+        "dest": ".pub-cache/hosted-hashes/pub.dev",
+        "dest-filename": "open_dir_platform_interface-0.0.2.sha256"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
+        "url": "https://pub.dev/api/archives/open_dir_windows-0.0.2+1.tar.gz",
+        "sha256": "ec48df32ce61adb6f6cede0330d13b0d89714d2ee2df198f32ecd520e3a5d250",
+        "strip-components": 0,
+        "dest": ".pub-cache/hosted/pub.dev/open_dir_windows-0.0.2+1"
+    },
+    {
+        "type": "inline",
+        "contents": "ec48df32ce61adb6f6cede0330d13b0d89714d2ee2df198f32ecd520e3a5d250",
+        "dest": ".pub-cache/hosted-hashes/pub.dev",
+        "dest-filename": "open_dir_windows-0.0.2+1.sha256"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
         "url": "https://pub.dev/api/archives/open_filex-4.5.0.tar.gz",
         "sha256": "ba425ea49affd0a98a234aa9344b9ea5d4c4f7625a1377961eae9fe194c3d523",
         "strip-components": 0,
@@ -3146,5 +3216,10 @@
         "contents": "87d3f2333bb240704cd3f1c6b5b7acd8a10e7f0bc28c28dcf14e782014f4a572",
         "dest": ".pub-cache/hosted-hashes/pub.dev",
         "dest-filename": "webkit_inspection_protocol-1.2.1.sha256"
+    },
+    {
+        "type": "file",
+        "path": "package_config.json",
+        "dest": "flutter/packages/flutter_tools/.dart_tool"
     }
 ]
