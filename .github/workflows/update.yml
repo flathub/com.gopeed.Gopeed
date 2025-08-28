@@ -1,0 +1,104 @@
+name: Update Gopeed
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_version:
+        description: 'Gopeed version to update to (leave empty for latest)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout flatpak-flutter
+      uses: actions/checkout@v4
+      with:
+        repository: TheAppgineer/flatpak-flutter
+        path: flatpak-flutter
+    
+    - name: Checkout com.gopeed.Gopeed
+      uses: actions/checkout@v4
+      with:
+        path: flatpak-flutter/com.gopeed.Gopeed
+        submodules: recursive
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.24'
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+    
+    - name: Install dependencies
+      run: |
+        sudo add-apt-repository -y ppa:flatpak/stable
+        sudo apt-get update -q
+        sudo apt-get install -y python3-toml flatpak flatpak-builder ca-certificates software-properties-common
+        flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    
+    - name: Install flatpak-go-mod
+      run: go install github.com/dennwc/flatpak-go-mod@latest
+    
+    - name: Fetch Gopeed version
+      id: version
+      run: |
+        if [ -n "${{ github.event.inputs.target_version }}" ]; then
+          GOPEED_VERSION="${{ github.event.inputs.target_version }}"
+        else
+          GOPEED_VERSION=$(git ls-remote --tags https://github.com/GopeedLab/gopeed.git | grep -E "refs/tags/v[0-9.]+$" | tail -1 | sed 's|.*refs/tags/||')
+        fi
+        echo "Version: $GOPEED_VERSION"
+        echo "version=$GOPEED_VERSION" >> $GITHUB_OUTPUT
+    
+    - name: Clone Gopeed repository
+      working-directory: flatpak-flutter/com.gopeed.Gopeed
+      run: git clone https://github.com/GopeedLab/gopeed.git -b ${{ steps.version.outputs.version }}
+    
+    - name: Run flatpak-go-mod
+      working-directory: flatpak-flutter/com.gopeed.Gopeed
+      run: $(go env GOPATH)/bin/flatpak-go-mod ./gopeed
+    
+    - name: Update submodules
+      working-directory: flatpak-flutter/com.gopeed.Gopeed
+      run: git submodule update --remote
+    
+    - name: Regenerate pub source
+      working-directory: flatpak-flutter/com.gopeed.Gopeed
+      run: python3 ../../flatpak-flutter.py flatpak-flutter.yaml
+    
+    - name: Configure Git
+      working-directory: flatpak-flutter/com.gopeed.Gopeed
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+    
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        path: flatpak-flutter/com.gopeed.Gopeed
+        commit-message: "Update Gopeed to ${{ steps.version.outputs.version }}"
+        title: "Update Gopeed to ${{ steps.version.outputs.version }}"
+        body: |
+          This PR updates Gopeed to version ${{ steps.version.outputs.version }}.
+          
+          Changes:
+          - Updated to Gopeed ${{ steps.version.outputs.version }}
+          - Regenerated go modules
+          - Updated submodules
+          - Regenerated pub source
+          
+          🤖 This PR was created automatically by GitHub Actions.
+        branch: update-gopeed-${{ steps.version.outputs.version }}
+        delete-branch: true
