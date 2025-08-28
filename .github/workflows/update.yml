@@ -15,7 +15,6 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout flatpak-flutter
         uses: actions/checkout@v4
