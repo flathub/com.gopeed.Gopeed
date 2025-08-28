@@ -60,8 +60,8 @@ modules:
       - pubspec-sources.json
       - type: git
         url: https://github.com/GopeedLab/gopeed.git
-        tag: v1.7.1
-        commit: 06671be0d8775ea913f61a0a87af35c5ed1a13c0
+        tag: v1.8.0
+        commit: 55e6bdc4f74f6a84aa5ce47f7094309acfac537b
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
