@@ -688,16 +688,16 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "url": "https://pub.dev/api/archives/flutter_foreground_task-8.17.0.tar.gz",
-        "sha256": "206017ee1bf864f34b8d7bce664a172717caa21af8da23f55866470dfe316644",
+        "url": "https://pub.dev/api/archives/flutter_foreground_task-8.2.0.tar.gz",
+        "sha256": "294280d8055af5628a8085bb765ba442561eaab3d5bcdf2eea4f20614f18618f",
         "strip-components": 0,
-        "dest": ".pub-cache/hosted/pub.dev/flutter_foreground_task-8.17.0"
+        "dest": ".pub-cache/hosted/pub.dev/flutter_foreground_task-8.2.0"
     },
     {
         "type": "inline",
-        "contents": "206017ee1bf864f34b8d7bce664a172717caa21af8da23f55866470dfe316644",
+        "contents": "294280d8055af5628a8085bb765ba442561eaab3d5bcdf2eea4f20614f18618f",
         "dest": ".pub-cache/hosted-hashes/pub.dev",
-        "dest-filename": "flutter_foreground_task-8.17.0.sha256"
+        "dest-filename": "flutter_foreground_task-8.2.0.sha256"
     },
     {
         "type": "archive",
