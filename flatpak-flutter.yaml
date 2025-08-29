@@ -54,8 +54,8 @@ modules:
       - cd ui/flutter && flutter build linux --release
       - cp -r ${BUNDLE_PATH}/* ${FLATPAK_DEST}/bin
       - install -Dm644 com.gopeed.Gopeed.metainfo.xml -t ${FLATPAK_DEST}/share/metainfo
-      - install -Dm644 linux/assets/com.gopeed.Gopeed.desktop -t ${FLATPAK_DEST}/share/applications
-      - install -Dm644 assets/icon/icon.svg ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
+      - install -Dm644 ui/flutter/linux/assets/com.gopeed.Gopeed.desktop -t ${FLATPAK_DEST}/share/applications
+      - install -Dm644 ui/flutter/assets/icon/icon.svg ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
     sources:
       - type: git
         url: https://github.com/GopeedLab/gopeed.git
