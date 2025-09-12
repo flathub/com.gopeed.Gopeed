@@ -42,12 +42,12 @@ github.com/ajwerner/btree/internal/abstract
 # github.com/alecthomas/atomic v0.1.0-alpha2
 ## explicit; go 1.18
 github.com/alecthomas/atomic
-# github.com/anacrolix/chansync v0.6.0
+# github.com/anacrolix/chansync v0.7.0
 ## explicit; go 1.16
 github.com/anacrolix/chansync
 github.com/anacrolix/chansync/events
-# github.com/anacrolix/dht/v2 v2.22.0
-## explicit; go 1.18
+# github.com/anacrolix/dht/v2 v2.23.0
+## explicit; go 1.23
 github.com/anacrolix/dht/v2
 github.com/anacrolix/dht/v2/bep44
 github.com/anacrolix/dht/v2/containers
@@ -61,14 +61,14 @@ github.com/anacrolix/dht/v2/types
 # github.com/anacrolix/envpprof v1.4.0
 ## explicit; go 1.12
 github.com/anacrolix/envpprof
-# github.com/anacrolix/generics v0.0.3-0.20240902042256-7fb2702ef0ca
+# github.com/anacrolix/generics v0.1.0
 ## explicit; go 1.18
 github.com/anacrolix/generics
 github.com/anacrolix/generics/heap
-# github.com/anacrolix/go-libutp v1.3.1
+# github.com/anacrolix/go-libutp v1.3.2
 ## explicit; go 1.14
 github.com/anacrolix/go-libutp
-# github.com/anacrolix/log v0.16.0
+# github.com/anacrolix/log v0.17.0
 ## explicit; go 1.19
 github.com/anacrolix/log
 # github.com/anacrolix/missinggo v1.3.0
@@ -84,8 +84,8 @@ github.com/anacrolix/missinggo/slices
 # github.com/anacrolix/missinggo/perf v1.0.0
 ## explicit; go 1.12
 github.com/anacrolix/missinggo/perf
-# github.com/anacrolix/missinggo/v2 v2.8.0
-## explicit; go 1.18
+# github.com/anacrolix/missinggo/v2 v2.10.0
+## explicit; go 1.20
 github.com/anacrolix/missinggo/v2
 github.com/anacrolix/missinggo/v2/bitmap
 github.com/anacrolix/missinggo/v2/iter
@@ -105,10 +105,10 @@ github.com/anacrolix/multiless
 ## explicit; go 1.18
 github.com/anacrolix/stm
 github.com/anacrolix/stm/stmutil
-# github.com/anacrolix/sync v0.5.3
-## explicit; go 1.13
+# github.com/anacrolix/sync v0.5.4
+## explicit; go 1.18
 github.com/anacrolix/sync
-# github.com/anacrolix/torrent v1.57.2-0.20241017235801-4d8437a05621
+# github.com/anacrolix/torrent v1.58.1
 ## explicit; go 1.23
 github.com/anacrolix/torrent
 github.com/anacrolix/torrent/bencode
@@ -121,7 +121,6 @@ github.com/anacrolix/torrent/internal/limiter
 github.com/anacrolix/torrent/internal/nestedmaps
 github.com/anacrolix/torrent/internal/testutil
 github.com/anacrolix/torrent/iplist
-github.com/anacrolix/torrent/logonce
 github.com/anacrolix/torrent/merkle
 github.com/anacrolix/torrent/metainfo
 github.com/anacrolix/torrent/mmap_span
@@ -335,7 +334,7 @@ github.com/go-git/go-git/v5/utils/sync
 ## explicit; go 1.18
 github.com/go-llsqlite/adapter
 github.com/go-llsqlite/adapter/sqlitex
-# github.com/go-llsqlite/crawshaw v0.5.5
+# github.com/go-llsqlite/crawshaw v0.5.6-0.20250312230104-194977a03421
 ## explicit; go 1.18
 github.com/go-llsqlite/crawshaw
 github.com/go-llsqlite/crawshaw/c
@@ -528,17 +527,18 @@ github.com/pion/ice/v4/internal/atomic
 github.com/pion/ice/v4/internal/fakenet
 github.com/pion/ice/v4/internal/stun
 github.com/pion/ice/v4/internal/taskloop
-# github.com/pion/interceptor v0.1.37
+# github.com/pion/interceptor v0.1.40
 ## explicit; go 1.20
 github.com/pion/interceptor
 github.com/pion/interceptor/internal/ntp
+github.com/pion/interceptor/internal/rtpbuffer
 github.com/pion/interceptor/internal/sequencenumber
 github.com/pion/interceptor/pkg/nack
 github.com/pion/interceptor/pkg/report
 github.com/pion/interceptor/pkg/rfc8888
 github.com/pion/interceptor/pkg/twcc
-# github.com/pion/logging v0.2.2
-## explicit; go 1.12
+# github.com/pion/logging v0.2.3
+## explicit; go 1.20
 github.com/pion/logging
 # github.com/pion/mdns/v2 v2.0.7
 ## explicit; go 1.19
@@ -546,11 +546,11 @@ github.com/pion/mdns/v2
 # github.com/pion/randutil v0.1.0
 ## explicit; go 1.14
 github.com/pion/randutil
-# github.com/pion/rtcp v1.2.14
-## explicit; go 1.13
+# github.com/pion/rtcp v1.2.15
+## explicit; go 1.20
 github.com/pion/rtcp
-# github.com/pion/rtp v1.8.9
-## explicit; go 1.19
+# github.com/pion/rtp v1.8.18
+## explicit; go 1.20
 github.com/pion/rtp
 github.com/pion/rtp/codecs
 github.com/pion/rtp/codecs/av1/obu
@@ -719,7 +719,7 @@ go.uber.org/automaxprocs/maxprocs
 ## explicit; go 1.22
 go.uber.org/mock/mockgen
 go.uber.org/mock/mockgen/model
-# golang.org/x/crypto v0.37.0
+# golang.org/x/crypto v0.40.0
 ## explicit; go 1.23.0
 golang.org/x/crypto/argon2
 golang.org/x/crypto/blake2b
@@ -743,13 +743,13 @@ golang.org/x/crypto/ssh/knownhosts
 ## explicit; go 1.22.0
 golang.org/x/exp/constraints
 golang.org/x/exp/slices
-# golang.org/x/mod v0.24.0
+# golang.org/x/mod v0.25.0
 ## explicit; go 1.23.0
 golang.org/x/mod/internal/lazyregexp
 golang.org/x/mod/modfile
 golang.org/x/mod/module
 golang.org/x/mod/semver
-# golang.org/x/net v0.39.0
+# golang.org/x/net v0.42.0
 ## explicit; go 1.23.0
 golang.org/x/net/bpf
 golang.org/x/net/context
@@ -768,18 +768,18 @@ golang.org/x/net/ipv4
 golang.org/x/net/ipv6
 golang.org/x/net/proxy
 golang.org/x/net/publicsuffix
-# golang.org/x/sync v0.13.0
+# golang.org/x/sync v0.16.0
 ## explicit; go 1.23.0
 golang.org/x/sync/errgroup
 golang.org/x/sync/singleflight
-# golang.org/x/sys v0.32.0
+# golang.org/x/sys v0.34.0
 ## explicit; go 1.23.0
 golang.org/x/sys/cpu
 golang.org/x/sys/execabs
 golang.org/x/sys/unix
 golang.org/x/sys/windows
 golang.org/x/sys/windows/registry
-# golang.org/x/text v0.24.0
+# golang.org/x/text v0.27.0
 ## explicit; go 1.23.0
 golang.org/x/text/cases
 golang.org/x/text/collate
@@ -810,11 +810,12 @@ golang.org/x/text/unicode/rangetable
 # golang.org/x/time v0.8.0
 ## explicit; go 1.18
 golang.org/x/time/rate
-# golang.org/x/tools v0.32.0
+# golang.org/x/tools v0.34.0
 ## explicit; go 1.23.0
 golang.org/x/tools/cmd/stringer
 golang.org/x/tools/cover
 golang.org/x/tools/go/ast/astutil
+golang.org/x/tools/go/ast/edge
 golang.org/x/tools/go/ast/inspector
 golang.org/x/tools/go/gcexportdata
 golang.org/x/tools/go/packages
@@ -822,7 +823,6 @@ golang.org/x/tools/go/types/objectpath
 golang.org/x/tools/go/types/typeutil
 golang.org/x/tools/imports
 golang.org/x/tools/internal/aliases
-golang.org/x/tools/internal/astutil/edge
 golang.org/x/tools/internal/event
 golang.org/x/tools/internal/event/core
 golang.org/x/tools/internal/event/keys
