@@ -2,7 +2,7 @@
 # https://github.com/TheAppgineer/flatpak-flutter
 app-id: com.gopeed.Gopeed
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.llvm20
@@ -59,8 +59,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/GopeedLab/gopeed.git
-        tag: v1.8.0
-        commit: 55e6bdc4f74f6a84aa5ce47f7094309acfac537b
+        tag: v1.8.1
+        commit: 93614d46a8542c1cbe55727f67ee3afe2409c9f2
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
