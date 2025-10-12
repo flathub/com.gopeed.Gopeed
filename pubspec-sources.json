@@ -492,6 +492,20 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
+        "url": "https://pub.dev/api/archives/dart_ipc-1.0.1.tar.gz",
+        "sha256": "6cad558cda5304017c1f581df4c96fd4f8e4ee212aae7bfa4357716236faa9ba",
+        "strip-components": 0,
+        "dest": ".pub-cache/hosted/pub.dev/dart_ipc-1.0.1"
+    },
+    {
+        "type": "inline",
+        "contents": "6cad558cda5304017c1f581df4c96fd4f8e4ee212aae7bfa4357716236faa9ba",
+        "dest": ".pub-cache/hosted-hashes/pub.dev",
+        "dest-filename": "dart_ipc-1.0.1.sha256"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
         "url": "https://pub.dev/api/archives/dart_style-2.3.7.tar.gz",
         "sha256": "7856d364b589d1f08986e140938578ed36ed948581fbc3bc9aef1805039ac5ab",
         "strip-components": 0,
@@ -2407,16 +2421,16 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "url": "https://pub.dev/api/archives/web_socket_channel-3.0.1.tar.gz",
-        "sha256": "9f187088ed104edd8662ca07af4b124465893caf063ba29758f97af57e61da8f",
+        "url": "https://pub.dev/api/archives/web_socket_channel-3.0.3.tar.gz",
+        "sha256": "d645757fb0f4773d602444000a8131ff5d48c9e47adfe9772652dd1a4f2d45c8",
         "strip-components": 0,
-        "dest": ".pub-cache/hosted/pub.dev/web_socket_channel-3.0.1"
+        "dest": ".pub-cache/hosted/pub.dev/web_socket_channel-3.0.3"
     },
     {
         "type": "inline",
-        "contents": "9f187088ed104edd8662ca07af4b124465893caf063ba29758f97af57e61da8f",
+        "contents": "d645757fb0f4773d602444000a8131ff5d48c9e47adfe9772652dd1a4f2d45c8",
         "dest": ".pub-cache/hosted-hashes/pub.dev",
-        "dest-filename": "web_socket_channel-3.0.1.sha256"
+        "dest-filename": "web_socket_channel-3.0.3.sha256"
     },
     {
         "type": "archive",
