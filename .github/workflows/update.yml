@@ -45,7 +45,7 @@ jobs:
           sudo apt-get update -q
           sudo apt-get install -y flatpak flatpak-builder ca-certificates software-properties-common
           flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-          flatpak install flathub org.freedesktop.Platform//25.08 org.freedesktop.Sdk//25.08 org.freedesktop.Sdk.Extension.llvm20//25.08 org.freedesktop.Sdk.Extension.golang//25.08 -y
+          flatpak install flathub org.flathub.flatpak-external-data-checker org.freedesktop.Platform//25.08 org.freedesktop.Sdk//25.08 org.freedesktop.Sdk.Extension.llvm20//25.08 org.freedesktop.Sdk.Extension.golang//25.08 -y
           pip install packaging pyyaml toml
 
       - name: Install flatpak-go-mod
@@ -73,6 +73,12 @@ jobs:
       - name: Update submodules
         working-directory: flatpak-flutter/com.gopeed.Gopeed
         run: git submodule update --remote
+
+      - name: Update flatpak manifest
+        working-directory: flatpak-flutter/com.gopeed.Gopeed
+        run: |
+          flatpak run org.flathub.flatpak-external-data-checker flatpak-flutter.yaml --edit
+          flatpak run org.flathub.flatpak-external-data-checker com.gopeed.Gopeed.yaml --edit
 
       - name: Regenerate pub source
         working-directory: flatpak-flutter/com.gopeed.Gopeed
