@@ -5,7 +5,7 @@ runtime: org.freedesktop.Platform
 runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.llvm20
+  - org.freedesktop.Sdk.Extension.llvm21
   - org.freedesktop.Sdk.Extension.golang
 command: gopeed
 finish-args:
@@ -41,8 +41,8 @@ modules:
             BUNDLE_PATH: ui/flutter/build/linux/arm64/release/bundle
       build-args:
         - --share=network
-      append-path: /usr/lib/sdk/llvm20/bin:/usr/lib/sdk/golang/bin:/run/build/Gopeed/flutter/bin
-      prepend-ld-library-path: /usr/lib/sdk/llvm20/lib
+      append-path: /usr/lib/sdk/llvm21/bin:/usr/lib/sdk/golang/bin:/run/build/Gopeed/flutter/bin
+      prepend-ld-library-path: /usr/lib/sdk/llvm21/lib
       env:
         PUB_CACHE: /run/build/Gopeed/.pub-cache
         CGO_CFLAGS: -std=gnu17
