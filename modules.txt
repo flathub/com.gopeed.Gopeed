@@ -250,8 +250,6 @@ github.com/dop251/goja_nodejs/util
 # github.com/dustin/go-humanize v1.0.1
 ## explicit; go 1.16
 github.com/dustin/go-humanize
-# github.com/ebitengine/purego v0.8.1
-## explicit; go 1.18
 # github.com/edsrzf/mmap-go v1.2.0
 ## explicit; go 1.17
 github.com/edsrzf/mmap-go
@@ -343,8 +341,6 @@ github.com/go-logr/logr/funcr
 # github.com/go-logr/stdr v1.2.2
 ## explicit; go 1.16
 github.com/go-logr/stdr
-# github.com/go-ole/go-ole v1.2.6
-## explicit; go 1.12
 # github.com/go-sourcemap/sourcemap v2.1.4+incompatible
 ## explicit
 github.com/go-sourcemap/sourcemap
@@ -429,8 +425,6 @@ github.com/klauspost/compress/zstd/internal/xxhash
 # github.com/klauspost/cpuid/v2 v2.2.9
 ## explicit; go 1.20
 github.com/klauspost/cpuid/v2
-# github.com/lufia/plan9stats v0.0.0-20220913051719-115f729f3c8c
-## explicit; go 1.16
 # github.com/matoous/go-nanoid/v2 v2.0.0
 ## explicit; go 1.15
 github.com/matoous/go-nanoid/v2
@@ -598,8 +592,6 @@ github.com/pkg/browser
 # github.com/pkg/errors v0.9.1
 ## explicit
 github.com/pkg/errors
-# github.com/power-devops/perfstat v0.0.0-20220216144756-c35f1ee13d7c
-## explicit; go 1.14
 # github.com/protolambda/ctxlock v0.1.0
 ## explicit; go 1.21
 github.com/protolambda/ctxlock
@@ -644,21 +636,17 @@ github.com/rs/zerolog/pkgerrors
 # github.com/sergi/go-diff v1.1.0
 ## explicit; go 1.12
 github.com/sergi/go-diff/diffmatchpatch
-# github.com/shirou/gopsutil/v4 v4.24.12
-## explicit; go 1.18
 # github.com/skeema/knownhosts v1.2.0
 ## explicit; go 1.17
 github.com/skeema/knownhosts
 # github.com/spaolacci/murmur3 v1.1.0
 ## explicit
 github.com/spaolacci/murmur3
+# github.com/stretchr/testify v1.10.0
+## explicit; go 1.17
 # github.com/tidwall/btree v1.7.0
 ## explicit; go 1.19
 github.com/tidwall/btree
-# github.com/tklauser/go-sysconf v0.3.12
-## explicit; go 1.13
-# github.com/tklauser/numcpus v0.6.1
-## explicit; go 1.13
 # github.com/wlynxg/anet v0.0.5
 ## explicit; go 1.20
 github.com/wlynxg/anet
@@ -668,8 +656,6 @@ github.com/xanzy/ssh-agent
 # github.com/xiaoqidun/setft v0.0.0-20220310121541-be86327699ad
 ## explicit; go 1.18
 github.com/xiaoqidun/setft
-# github.com/yusufpapurcu/wmi v1.2.4
-## explicit; go 1.16
 # go.etcd.io/bbolt v1.3.11
 ## explicit; go 1.22
 go.etcd.io/bbolt
