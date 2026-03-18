@@ -74,8 +74,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/GopeedLab/gopeed.git
-        tag: v1.9.1
-        commit: a6981d58e906db11359353352de49d407bcb3489
+        tag: v1.9.2
+        commit: 5b0254f7c0240641ad231ef25f3dc371f9a2474e
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
