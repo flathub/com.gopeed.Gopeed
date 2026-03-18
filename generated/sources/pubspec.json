@@ -464,6 +464,20 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
+        "url": "https://pub.dev/api/archives/dbus-0.7.12.tar.gz",
+        "sha256": "d0c98dcd4f5169878b6cf8f6e0a52403a9dff371a3e2f019697accbf6f44a270",
+        "strip-components": 0,
+        "dest": ".pub-cache/hosted/pub.dev/dbus-0.7.12"
+    },
+    {
+        "type": "inline",
+        "contents": "d0c98dcd4f5169878b6cf8f6e0a52403a9dff371a3e2f019697accbf6f44a270",
+        "dest": ".pub-cache/hosted-hashes/pub.dev",
+        "dest-filename": "dbus-0.7.12.sha256"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
         "url": "https://pub.dev/api/archives/desktop_drop-0.4.4.tar.gz",
         "sha256": "d55a010fe46c8e8fcff4ea4b451a9ff84a162217bdb3b2a0aa1479776205e15d",
         "strip-components": 0,
@@ -698,6 +712,76 @@
         "contents": "a25a15ebbdfc33ab1cd26c63a6ee519df92338a9c10f122adda92938253bef04",
         "dest": ".pub-cache/hosted-hashes/pub.dev",
         "dest-filename": "flutter_lints-2.0.3.sha256"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
+        "url": "https://pub.dev/api/archives/flutter_local_notifications-20.1.0.tar.gz",
+        "sha256": "2b50e938a275e1ad77352d6a25e25770f4130baa61eaf02de7a9a884680954ad",
+        "strip-components": 0,
+        "dest": ".pub-cache/hosted/pub.dev/flutter_local_notifications-20.1.0"
+    },
+    {
+        "type": "inline",
+        "contents": "2b50e938a275e1ad77352d6a25e25770f4130baa61eaf02de7a9a884680954ad",
+        "dest": ".pub-cache/hosted-hashes/pub.dev",
+        "dest-filename": "flutter_local_notifications-20.1.0.sha256"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
+        "url": "https://pub.dev/api/archives/flutter_local_notifications_linux-7.0.0.tar.gz",
+        "sha256": "dce0116868cedd2cdf768af0365fc37ff1cbef7c02c4f51d0587482e625868d0",
+        "strip-components": 0,
+        "dest": ".pub-cache/hosted/pub.dev/flutter_local_notifications_linux-7.0.0"
+    },
+    {
+        "type": "inline",
+        "contents": "dce0116868cedd2cdf768af0365fc37ff1cbef7c02c4f51d0587482e625868d0",
+        "dest": ".pub-cache/hosted-hashes/pub.dev",
+        "dest-filename": "flutter_local_notifications_linux-7.0.0.sha256"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
+        "url": "https://pub.dev/api/archives/flutter_local_notifications_platform_interface-10.0.0.tar.gz",
+        "sha256": "23de31678a48c084169d7ae95866df9de5c9d2a44be3e5915a2ff067aeeba899",
+        "strip-components": 0,
+        "dest": ".pub-cache/hosted/pub.dev/flutter_local_notifications_platform_interface-10.0.0"
+    },
+    {
+        "type": "inline",
+        "contents": "23de31678a48c084169d7ae95866df9de5c9d2a44be3e5915a2ff067aeeba899",
+        "dest": ".pub-cache/hosted-hashes/pub.dev",
+        "dest-filename": "flutter_local_notifications_platform_interface-10.0.0.sha256"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
+        "url": "https://pub.dev/api/archives/flutter_local_notifications_windows-2.0.1.tar.gz",
+        "sha256": "e97a1a3016512437d9c0b12fae7d1491c3c7b9aa7f03a69b974308840656b02a",
+        "strip-components": 0,
+        "dest": ".pub-cache/hosted/pub.dev/flutter_local_notifications_windows-2.0.1"
+    },
+    {
+        "type": "inline",
+        "contents": "e97a1a3016512437d9c0b12fae7d1491c3c7b9aa7f03a69b974308840656b02a",
+        "dest": ".pub-cache/hosted-hashes/pub.dev",
+        "dest-filename": "flutter_local_notifications_windows-2.0.1.sha256"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
+        "url": "https://pub.dev/api/archives/flutter_markdown_plus-1.0.7.tar.gz",
+        "sha256": "039177906850278e8fb1cd364115ee0a46281135932fa8ecea8455522166d2de",
+        "strip-components": 0,
+        "dest": ".pub-cache/hosted/pub.dev/flutter_markdown_plus-1.0.7"
+    },
+    {
+        "type": "inline",
+        "contents": "039177906850278e8fb1cd364115ee0a46281135932fa8ecea8455522166d2de",
+        "dest": ".pub-cache/hosted-hashes/pub.dev",
+        "dest-filename": "flutter_markdown_plus-1.0.7.sha256"
     },
     {
         "type": "archive",
@@ -1159,6 +1243,20 @@
         "contents": "c8245ada5f1717ed44271ed1c26b8ce85ca3228fd2ffdb75468ab01979309d61",
         "dest": ".pub-cache/hosted-hashes/pub.dev",
         "dest-filename": "logging-1.3.0.sha256"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
+        "url": "https://pub.dev/api/archives/markdown-7.3.0.tar.gz",
+        "sha256": "935e23e1ff3bc02d390bad4d4be001208ee92cc217cb5b5a6c19bc14aaa318c1",
+        "strip-components": 0,
+        "dest": ".pub-cache/hosted/pub.dev/markdown-7.3.0"
+    },
+    {
+        "type": "inline",
+        "contents": "935e23e1ff3bc02d390bad4d4be001208ee92cc217cb5b5a6c19bc14aaa318c1",
+        "dest": ".pub-cache/hosted-hashes/pub.dev",
+        "dest-filename": "markdown-7.3.0.sha256"
     },
     {
         "type": "archive",
@@ -2068,6 +2166,20 @@
         "contents": "ab2726c1a94d3176a45960b6234466ec367179b87dd74f1611adb1f3b5fb9d55",
         "dest": ".pub-cache/hosted-hashes/pub.dev",
         "dest-filename": "test_api-0.7.7.sha256"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
+        "url": "https://pub.dev/api/archives/timezone-0.10.1.tar.gz",
+        "sha256": "dd14a3b83cfd7cb19e7888f1cbc20f258b8d71b54c06f79ac585f14093a287d1",
+        "strip-components": 0,
+        "dest": ".pub-cache/hosted/pub.dev/timezone-0.10.1"
+    },
+    {
+        "type": "inline",
+        "contents": "dd14a3b83cfd7cb19e7888f1cbc20f258b8d71b54c06f79ac585f14093a287d1",
+        "dest": ".pub-cache/hosted-hashes/pub.dev",
+        "dest-filename": "timezone-0.10.1.sha256"
     },
     {
         "type": "archive",
