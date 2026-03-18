@@ -85,6 +85,6 @@ modules:
       - go.mod.yml
       - type: git
         url: https://github.com/flutter/flutter.git
-        tag: 3.38.7
-        commit: 3b62efc2a3da49882f43c372e0bc53daef7295a6
+        tag: 3.41.5
+        commit: 2c9eb20739dfec95e2c74bd3dfa4601b0a8a36aa
         dest: flutter
