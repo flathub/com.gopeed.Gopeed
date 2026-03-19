@@ -72,8 +72,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/GopeedLab/gopeed.git
-        tag: v1.9.2
-        commit: 5b0254f7c0240641ad231ef25f3dc371f9a2474e
+        tag: v1.9.3
+        commit: a5cd53f94c18ac65add684b1113fa5f0b47cc4da
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -83,4 +83,4 @@ modules:
       - go.mod.yml
       - generated/sources/pubspec.json
     modules:
-      - generated/modules/flutter-sdk-3.38.7.json
+      - generated/modules/flutter-sdk-3.41.5.json

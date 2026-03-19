@@ -74,15 +74,15 @@ jobs:
         working-directory: flatpak-flutter/com.gopeed.Gopeed
         run: git submodule update --remote
 
+      - name: Regenerate pub source
+        working-directory: flatpak-flutter/com.gopeed.Gopeed
+        run: python3 ../flatpak-flutter.py flatpak-flutter.yaml --app-pubspec=ui/flutter
+
       - name: Update flatpak manifest
         working-directory: flatpak-flutter/com.gopeed.Gopeed
         run: |
           flatpak run org.flathub.flatpak-external-data-checker flatpak-flutter.yaml --edit
           flatpak run org.flathub.flatpak-external-data-checker com.gopeed.Gopeed.yaml --edit
-
-      - name: Regenerate pub source
-        working-directory: flatpak-flutter/com.gopeed.Gopeed
-        run: python3 ../flatpak-flutter.py flatpak-flutter.yaml --app-pubspec=ui/flutter
 
       - name: Configure Git
         working-directory: flatpak-flutter/com.gopeed.Gopeed
