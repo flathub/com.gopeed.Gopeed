@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component type="desktop">
+<component type="desktop-application">
   <id>com.gopeed.Gopeed</id>
   <launchable type="desktop-id">com.gopeed.Gopeed.desktop</launchable>
   <name>Gopeed</name>
